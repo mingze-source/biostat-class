@@ -85,3 +85,13 @@
 - 差異未達顯著：Log-rank χ² = 2.304，p = 0.129；Breslow p = 0.249、Tarone-Ware p = 0.183。
 - 存活表、中位數、平均存活時間與三項檢定皆與 SPSS 完全一致；中位數 CI 計算方法不同（SPSS 用 ±1.96 SE，本報告用信賴帶交點法）。
 - 沒有證據顯示新藥能延長存活，但樣本極小（共 9 個事件），無法證明新藥有害，也無法排除有意義的差異。
+
+---
+
+## 附錄：明析統計工作台與統計軟體整理
+
+| 檔案 | 內容 |
+|---|---|
+| [stat-workbench/index.html](stat-workbench/index.html) | 明析統計工作台：網頁版統計分析工具（說明見 [stat-workbench/README.md](stat-workbench/README.md)） |
+| [stat-workbench/docs/統計學家的工具箱_統計方法軟體評比與功能期望.md](stat-workbench/docs/統計學家的工具箱_統計方法軟體評比與功能期望.md) | 統計方法、各統計軟體優缺點與心得、期望新增功能 |
+| [stat-workbench/docs/統計方法與統計軟體_三位專家觀點整合.md](stat-workbench/docs/統計方法與統計軟體_三位專家觀點整合.md) | 三位專家觀點整合版 |
