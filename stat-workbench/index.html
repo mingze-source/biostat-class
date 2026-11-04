@@ -1,34 +1,34 @@
-<!doctype html>
-<html lang="zh-Hant">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>明析統計工作台</title>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>明析統計工作台</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700&family=Space+Grotesk:wght@500;600;700&display=swap">
 <style>
 /* Layout: sticky top bar with numbered workflow tabs; one centered workspace (max 1180px); control panel + result column that stack below 900px */
 :root{
-  --bg:#F2F4F7; --surface:#FFFFFF; --sunk:#E9EDF2; --ink:#17202B; --muted:#586374; --line:#D6DCE4; --rule:#17202B;
-  --accent:#1E58B8; --accent-ink:#FFFFFF; --accent-soft:#E2EBF9;
-  --ok:#1B7349; --ok-soft:#DFF1E7; --warn:#8F5600; --warn-soft:#FAEED6; --bad:#AE2A21; --bad-soft:#FAE3E1; --info:#45526A; --info-soft:#E8ECF2;
-  --c1:#1E58B8; --c2:#C0571C; --c3:#2A8466; --c4:#7A4DB3; --c5:#A3407A; --c6:#5F7084;
-  --f-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
-  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --bg:#FFF7E0; --surface:#FFFFFF; --sunk:#FFF0C4; --ink:#111111; --muted:#4F4A40; --line:#E2D6B4; --rule:#111111;
+  --edge:#111111; --shc:#111111; --pop:#FFD23F; --pop-ink:#111111; --dots:#1111110F;
+  --accent:#3A5BFF; --accent-ink:#FFFFFF; --accent-soft:#E4E9FF;
+  --ok:#007A4D; --ok-soft:#D4F5E6; --warn:#8A5300; --warn-soft:#FFE9B8; --bad:#C8102E; --bad-soft:#FFE0E5; --info:#3F3D56; --info-soft:#ECEAF5;
+  --c1:#3A5BFF; --c2:#FF5D8F; --c3:#00A86B; --c4:#F59E0B; --c5:#8E5BFF; --c6:#5B5B5B;
+  --f-display:"Space Grotesk","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-body:"Space Grotesk","Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   --cf-num:var(--f-mono); --cf-lbl:var(--f-body); --cfs:1;
+  --r-lg:14px; --r-md:10px; --r-sm:8px; --sh:5px 5px 0 var(--shc); --sh-sm:3px 3px 0 var(--shc);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0E1319; --surface:#161D26; --sunk:#1D2631; --ink:#E5EAF0; --muted:#9AA6B5; --line:#2B3644; --rule:#C9D2DC;
-  --accent:#78A6F2; --accent-ink:#0E1319; --accent-soft:#1C2B42;
-  --ok:#56C691; --ok-soft:#173327; --warn:#E5A84A; --warn-soft:#3A2B13; --bad:#F2786E; --bad-soft:#3E1C1A; --info:#AAB6C6; --info-soft:#222C38;
-  --c1:#78A6F2; --c2:#EB8C5C; --c3:#55C29A; --c4:#B391EC; --c5:#E07BB4; --c6:#9AA9BB; color-scheme:dark}}
+  --bg:#17161F; --surface:#23222E; --sunk:#1D1C27; --ink:#F4F1FF; --muted:#ADA8C4; --line:#3A384C; --rule:#F4F1FF;
+  --edge:#F4F1FF; --shc:#000000; --pop:#FFD23F; --pop-ink:#111111; --dots:#FFFFFF0D;
+  --accent:#7B93FF; --accent-ink:#111111; --accent-soft:#2A2F55;
+  --ok:#3EE0A0; --ok-soft:#173A2D; --warn:#FFC24D; --warn-soft:#3D3012; --bad:#FF6B81; --bad-soft:#44202A; --info:#C9C4E0; --info-soft:#2C2A3A;
+  --c1:#7B93FF; --c2:#FF7AA5; --c3:#3EE0A0; --c4:#FFC24D; --c5:#B794FF; --c6:#B0B0C0; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0E1319; --surface:#161D26; --sunk:#1D2631; --ink:#E5EAF0; --muted:#9AA6B5; --line:#2B3644; --rule:#C9D2DC;
-  --accent:#78A6F2; --accent-ink:#0E1319; --accent-soft:#1C2B42;
-  --ok:#56C691; --ok-soft:#173327; --warn:#E5A84A; --warn-soft:#3A2B13; --bad:#F2786E; --bad-soft:#3E1C1A; --info:#AAB6C6; --info-soft:#222C38;
-  --c1:#78A6F2; --c2:#EB8C5C; --c3:#55C29A; --c4:#B391EC; --c5:#E07BB4; --c6:#9AA9BB; color-scheme:dark}
+  --bg:#17161F; --surface:#23222E; --sunk:#1D1C27; --ink:#F4F1FF; --muted:#ADA8C4; --line:#3A384C; --rule:#F4F1FF;
+  --edge:#F4F1FF; --shc:#000000; --pop:#FFD23F; --pop-ink:#111111; --dots:#FFFFFF0D;
+  --accent:#7B93FF; --accent-ink:#111111; --accent-soft:#2A2F55;
+  --ok:#3EE0A0; --ok-soft:#173A2D; --warn:#FFC24D; --warn-soft:#3D3012; --bad:#FF6B81; --bad-soft:#44202A; --info:#C9C4E0; --info-soft:#2C2A3A;
+  --c1:#7B93FF; --c2:#FF7AA5; --c3:#3EE0A0; --c4:#FFC24D; --c5:#B794FF; --c6:#B0B0C0; color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65}
@@ -275,10 +275,112 @@ hr.sep{border:0;border-top:1px solid var(--line);margin:4px 0;width:100%}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:8px 16px;border-radius:8px;font-size:14px;z-index:50;opacity:0;pointer-events:none;transition:opacity .2s}
 .toast.show{opacity:1}
 footer.foot{border-top:1px solid var(--line);padding-block:18px;color:var(--muted);font-size:13px}
+/* ============ 新野獸派 Neo-brutalism layer ============ */
+[hidden]{display:none!important}
+html,body{margin:0}
+body{background-color:var(--bg);background-image:radial-gradient(var(--dots) 1.2px,transparent 1.2px);background-size:18px 18px;font-weight:500}
+h1{font-family:var(--f-display);font-size:30px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+h1::after{content:"";display:block;width:56px;height:6px;background:var(--pop);border:2px solid var(--edge);margin-top:8px;border-radius:3px}
+h2,h3{font-family:var(--f-display);letter-spacing:-.005em}
+body::before{background:var(--pop)}
+header.top{background:var(--pop);color:var(--pop-ink);border-bottom:3px solid #111}
+.brand{color:var(--pop-ink)}
+.brand b{font-family:var(--f-display);font-weight:700;font-size:21px;letter-spacing:-.01em}
+.brand svg rect{fill:#fff;stroke:#111;stroke-width:2}
+.brand svg path,.brand svg line{stroke:#3A5BFF}
+nav.tabs a{color:#111;opacity:.78;border-radius:var(--r-sm);font-weight:600;border:2px solid transparent}
+nav.tabs a:hover{opacity:1;background:#ffffff80;color:#111}
+nav.tabs a[aria-current="page"]{opacity:1;background:#111;color:var(--pop);border-color:#111}
+nav.tabs .step{opacity:1;display:inline-grid;place-items:center;width:18px;height:18px;border:1.5px solid currentColor;border-radius:50%;font-size:11px;margin-right:6px;vertical-align:1px}
+.teach-toggle{color:#111;font-weight:600}
+.teach-toggle input{background:#fff;border:2px solid #111;height:22px;width:38px}
+.teach-toggle input::after{background:#111;top:1px;left:1px;width:16px;height:16px}
+.teach-toggle input:checked{background:#3A5BFF}
+.teach-toggle input:checked::after{background:#fff;transform:translateX(16px)}
+.hdr-btn{font:inherit;font-weight:700;font-size:13.5px;display:inline-flex;align-items:center;gap:6px;background:#fff;color:#111;border:2px solid #111;border-radius:999px;padding:4px 12px;cursor:pointer;box-shadow:2px 2px 0 #111;white-space:nowrap}
+.hdr-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 #111}
+.hdr-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #111}
+.hdr-btn .ai-dot{width:8px;height:8px;border-radius:50%;background:#bbb;border:1.5px solid #111}
+.hdr-btn .ai-dot.on{background:#00C27A}
+.hdr-tools{display:flex;gap:8px;align-items:center}
+
+.panel,.result,.rec,.soft,.rblock{border:2px solid var(--edge);border-radius:var(--r-lg);box-shadow:var(--sh)}
+.q-card,.qcell,.fac,.ai-box,details.fold,.preview-wrap,.checks-list,.cs-preview{border:2px solid var(--edge);border-radius:var(--r-md)}
+.q-card,.qcell{box-shadow:var(--sh-sm);transition:transform .12s,box-shadow .12s}
+.q-card:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--shc)}
+.q-card:has(input:checked){background:var(--pop);color:#111;border-color:var(--edge)}
+.q-card:has(input:checked) span{color:#333}
+.soft.hit{background:var(--accent-soft);box-shadow:var(--sh);border-color:var(--edge)}
+.result > .rh{background:var(--sunk);border-bottom:2px solid var(--edge)}
+.rh .rid{background:var(--ink);color:var(--surface);padding:1px 7px;border-radius:5px;font-weight:600}
+.rec-top{background:var(--sunk);border-bottom:2px solid var(--edge)}
+.rec-top .name{font-family:var(--f-display);font-size:24px}
+.source-chip,.peer{border:2px solid var(--edge);box-shadow:2px 2px 0 var(--shc);font-weight:600}
+.empty-state{border-style:dashed;box-shadow:none}
+.apa-box{border:2px solid var(--edge);border-radius:var(--r-md);background:var(--sunk)}
+.sec-title{color:var(--ink);font-family:var(--f-display);letter-spacing:.04em;text-transform:uppercase}
+.sec-title::before{content:"";display:inline-block;width:10px;height:10px;background:var(--pop);border:2px solid var(--edge);margin-right:7px;vertical-align:-1px;border-radius:2px}
+
+.btn{font-weight:700;border:2px solid var(--edge);border-radius:var(--r-sm);box-shadow:var(--sh-sm);transition:transform .1s,box-shadow .1s}
+.btn:hover{filter:none;transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--shc)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shc)}
+.btn:disabled{opacity:.55;cursor:wait;transform:none}
+.btn.ghost{background:var(--surface);color:var(--ink);border-color:var(--edge)}
+.btn.ghost:hover{background:var(--pop);color:#111}
+.btn.quiet{border-color:transparent;box-shadow:none;background:transparent}
+.btn.quiet:hover{transform:none;box-shadow:none;text-decoration:underline}
+.btn.sm{padding:4px 10px;box-shadow:2px 2px 0 var(--shc)}
+select,input[type=number],input[type=text],input[type=password],input[type=url],textarea{border:2px solid var(--edge);border-radius:var(--r-sm);background:var(--surface)}
+input[type=password],input[type=url]{font:inherit;font-size:14.5px;color:var(--ink);padding:8px 10px;width:100%;min-width:0}
+select:focus,input:focus,textarea:focus{outline:none;box-shadow:3px 3px 0 var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.pill{border:1.5px solid currentColor;font-weight:700}
+.tag{border:1.5px solid var(--edge);color:var(--ink);font-weight:600}
+.code-tabs button{border:2px solid var(--edge);color:var(--ink);font-weight:600;border-radius:var(--r-sm)}
+.code-tabs button[aria-selected="true"]{background:var(--pop);color:#111;border-color:var(--edge)}
+pre.code{border:2px solid var(--edge);border-radius:var(--r-sm)}
+.seg{border:2px solid var(--edge);border-radius:var(--r-sm);box-shadow:var(--sh-sm)}
+.seg button{color:var(--ink);font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--pop);color:#111}
+.need-list label{border:2px solid var(--edge);font-weight:600}
+.need-list label:has(input:checked){background:var(--pop);color:#111;border-color:var(--edge)}
+.dropzone{border:2.5px dashed var(--edge);background:var(--surface);color:var(--ink)}
+.dropzone.over{background:var(--pop);color:#111}
+.qcell .v{font-family:var(--f-display);font-weight:700;font-size:24px}
+.big-n{font-family:var(--f-display);font-weight:700;font-size:52px;-webkit-text-stroke:0}
+.err{border:2px solid var(--bad)}
+.banner{border:2px solid currentColor}
+.plan,.sheet-pick{border:2px solid var(--edge)}
+.toast{background:var(--pop);color:#111;border:2px solid #111;box-shadow:3px 3px 0 #111;font-weight:700}
+table.apa{border-top-width:2.5px;border-bottom-width:2.5px}
+table.apa th{font-weight:700}
+.preview-wrap th{background:var(--sunk)}
+footer.foot{border-top:3px solid var(--edge)}
+.teach-grid h4{color:var(--ink);background:var(--pop);display:inline-block;padding:0 6px;border-radius:4px;color:#111}
+
+/* AI settings dialog */
+dialog.mx-dlg{border:3px solid var(--edge);border-radius:var(--r-lg);box-shadow:8px 8px 0 var(--shc);background:var(--surface);color:var(--ink);padding:0;width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 40px)}
+dialog.mx-dlg::backdrop{background:#11111166}
+.dlg-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;background:var(--pop);color:#111;border-bottom:3px solid #111}
+.dlg-head h2{font-size:19px}
+.dlg-body{padding:16px 18px;display:flex;flex-direction:column;gap:14px;overflow:auto}
+.prov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,118px),1fr));gap:8px}
+.prov{position:relative;border:2px solid var(--edge);border-radius:var(--r-md);padding:9px 10px;cursor:pointer;display:flex;flex-direction:column;gap:1px;box-shadow:2px 2px 0 var(--shc);background:var(--surface)}
+.prov input{position:absolute;opacity:0;pointer-events:none}
+.prov b{font-size:14px}.prov span{font-size:11.5px;color:var(--muted)}
+.prov:has(input:checked){background:var(--pop);color:#111}
+.prov:has(input:checked) span{color:#333}
+.prov:has(input:focus-visible){outline:3px solid var(--accent);outline-offset:2px}
+.prov[aria-disabled="true"]{opacity:.45;cursor:not-allowed}
+.ai-status{font-size:13.5px;padding:8px 12px;border-radius:var(--r-sm);border:2px solid var(--edge);background:var(--sunk)}
+.ai-status.ok{background:var(--ok-soft);color:var(--ok);border-color:currentColor}
+.ai-status.bad{background:var(--bad-soft);color:var(--bad);border-color:currentColor}
+.key-row{display:flex;gap:6px}.key-row input{flex:1}
+.ai-who{font-size:12px;color:var(--muted)}
+@media (max-width:760px){.hdr-tools{margin-left:auto}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
-</head>
-<body>
+</style></head><body>
+
 <header class="top">
   <div class="wrap top-inner">
     <a class="brand" href="#analyze" aria-label="明析統計工作台">
@@ -294,9 +396,29 @@ footer.foot{border-top:1px solid var(--line);padding-block:18px;color:var(--mute
       <a href="#log">分析紀錄</a>
       <a href="#team">團隊</a>
     </nav>
-    <label class="teach-toggle"><input type="checkbox" id="teach-mode" checked> 教學模式</label>
+    <div class="hdr-tools">
+      <label class="teach-toggle"><input type="checkbox" id="teach-mode" checked> 教學模式</label>
+      <button class="hdr-btn" id="ai-open" type="button" title="設定要使用的 AI"><i class="ai-dot" id="ai-dot"></i><span id="ai-label">我的 AI</span></button>
+      <button class="hdr-btn" id="theme-btn" type="button" aria-label="切換日間／深色模式">☾ 深色</button>
+    </div>
   </div>
 </header>
+
+<dialog class="mx-dlg" id="ai-dlg" aria-labelledby="ai-dlg-t">
+  <div class="dlg-head"><h2 id="ai-dlg-t">連接我的 AI</h2><button class="hdr-btn" type="button" id="ai-close">關閉</button></div>
+  <div class="dlg-body">
+    <p class="small">選擇你平常用的 AI，貼上你自己的 API 金鑰。AI 只會收到變數名稱、統計摘要與你的問題，<b>不會收到原始資料</b>。</p>
+    <div class="prov-grid" id="prov-grid"></div>
+    <div id="ai-fields" class="stack" style="gap:10px"></div>
+    <div class="ai-status" id="ai-status" hidden></div>
+    <div class="row"><button class="btn" id="ai-save" type="button">儲存並測試連線</button><button class="btn ghost" id="ai-forget" type="button">清除金鑰</button></div>
+    <details class="fold"><summary>常見問題</summary><div class="fold-body small">
+      <p><b>ChatGPT Plus／Gemini Advanced／SuperGrok 訂閱可以直接用嗎？</b>不行。網站要用的是「API 金鑰」，要到各家的開發者後台另外申請；Gemini 在 Google AI Studio 有免費額度，OpenAI 與 xAI 依用量計費。</p>
+      <p><b>金鑰存在哪裡？</b>只存在你這台裝置的瀏覽器裡（沒勾「記住」時，關閉分頁就會清除），不會傳到本站或其他人。請不要在公用電腦勾選「記住」。</p>
+      <p><b>顯示「無法連線」？</b>部分服務不允許網頁直接呼叫，或你在 claude.ai 內開啟（那裡不允許連到外部網站）。請改用 GitHub Pages 版本，或選「自訂端點」透過 OpenRouter 等服務轉接。</p>
+    </div></details>
+  </div>
+</dialog>
 
 <main class="wrap">
 
@@ -397,10 +519,10 @@ footer.foot{border-top:1px solid var(--line);padding-block:18px;color:var(--mute
     </div>
   </div>
   <div class="stack">
-    <div class="panel stack ai-only">
+    <div class="panel stack">
       <div class="row" style="justify-content:space-between"><h2>直接描述你的研究問題</h2><span class="pill main">AI 助理</span></div>
       <textarea id="ai-q" rows="3" style="font-family:var(--f-body);font-size:15px" placeholder="例如：我想知道三種教學法的後測成績有沒有差異，但要控制前測。"></textarea>
-      <div class="row"><button class="btn" id="ai-ask">請 AI 推薦方法</button><span class="hint">只送出變數名稱、型態、類別名稱與數值範圍，不送出任何一筆原始資料。第一次使用時會請你同意以自己的 Claude 帳號回答。</span></div>
+      <div class="row"><button class="btn" id="ai-ask">請 AI 推薦方法</button><span class="hint">只送出變數名稱、型態、類別名稱與數值範圍，不送出任何一筆原始資料。使用你在右上「我的 AI」設定的服務（ChatGPT、Gemini、Grok 或 Claude）。</span></div>
       <div id="ai-rec"></div>
     </div>
     <div class="panel stack">
@@ -1696,7 +1818,7 @@ function renderResult(r) {
       <div class="res-grid"><div class="stack">${r.tables.join("")}</div><div class="stack">${r.charts.join("")}</div></div>
       ${r.plan ? `<p class="plan">${r.plan}</p>` : ""}
       <section class="apa-box"><div class="row" style="justify-content:space-between"><div class="sec-title" style="margin:0">APA 格式報告文字</div><button class="btn ghost sm" data-copy-apa="${r.id}">複製</button></div><p class="apa-text" id="apa-${r.id}">${r.apa}</p><p class="hint">這是初稿：請確認研究設計與結果解讀，再放入論文。</p></section>
-      ${AI_OFF ? "" : `<section class="ai-box ai-only"><div class="row" style="justify-content:space-between"><div class="sec-title" style="margin:0">AI 白話解釋</div><button class="btn ghost sm" data-ai-explain="${r.id}">請 AI 用白話解釋</button></div><p class="ai-out" id="ai-${r.id}"${r.aiText ? "" : " hidden"}>${esc(r.aiText || "")}</p><p class="hint">只送出這張卡片上的統計摘要，不送出原始資料。AI 解釋可能出錯，數字請以上方表格為準。</p></section>`}
+      ${`<section class="ai-box"><div class="row" style="justify-content:space-between"><div class="sec-title" style="margin:0">AI 白話解釋</div><button class="btn ghost sm" data-ai-explain="${r.id}">請 AI 用白話解釋</button></div><p class="ai-out" id="ai-${r.id}"${r.aiText ? "" : " hidden"}>${esc(r.aiText || "")}</p><p class="hint">只送出這張卡片上的統計摘要，不送出原始資料。AI 解釋可能出錯，數字請以上方表格為準。</p></section>`}
       <details class="fold"><summary>在其他軟體重現（R、Python、SPSS、Stata、SAS）</summary><div class="fold-body">
         <div class="row" style="justify-content:space-between"><div class="code-tabs" role="tablist">${TABS.map((k, i) => `<button role="tab" aria-selected="${i === 0}" data-ctab="${r.id}:${k}">${k}</button>`).join("")}</div><button class="btn ghost sm" data-copy-code="${r.id}">複製程式碼</button></div>
         <pre class="code" id="code-${r.id}">${esc(PRE.R + "\n" + r.code.R)}</pre>
@@ -1722,28 +1844,193 @@ document.addEventListener("click", e => {
 });
 
 /* ------------------------------------------------------------------ AI (viewer's own Claude, on request only) */
-let SAMPLE = null, AI_OFF = false, DL = null;
+let SAMPLE = null, DL = null;
 (async () => {
   try { SAMPLE = window.claude && window.claude.use ? await window.claude.use("sample") : null; } catch (e) { SAMPLE = null; }
-  if (!SAMPLE) { AI_OFF = true; $$(".ai-only").forEach(el => el.hidden = true); }
+  setTimeout(aiRefreshBadge, 0);
 })();
 (async () => {
   try { DL = window.claude && window.claude.use ? await window.claude.use("downloads") : null; } catch (e) { DL = null; }
   if (!DL) { DL_OFF = true; $$(".dl-only").forEach(el => el.hidden = true); }
 })();
-const aiErr = e => ({ not_granted: "你沒有允許使用 Claude，這次瀏覽中 AI 功能已停用。", rate_limited: "AI 請求太頻繁，請稍候再試。", prompt_too_large: "內容太長，AI 無法處理。", invalid_json: "AI 的回覆格式不正確，請再試一次或改用下方的引導選擇。", cancelled: "已停止。" }[e && e.code] || `AI 暫時無法回應${e && e.code ? `（${e.code}）` : ""}，請稍後再試。`);
+
+/* ---------- bring-your-own AI: ChatGPT / Gemini / Grok / custom ---------- */
+const PROVIDERS = {
+  claude: { name: "Claude", sub: "claude.ai 內建", builtin: true },
+  openai: { name: "ChatGPT", sub: "OpenAI API", base: "https://api.openai.com/v1", model: "gpt-4o-mini", keyUrl: "https://platform.openai.com/api-keys", keyHint: "sk-…", jsonMode: true },
+  gemini: { name: "Gemini", sub: "Google AI Studio", model: "gemini-2.5-flash", keyUrl: "https://aistudio.google.com/apikey", keyHint: "AIza…" },
+  xai: { name: "Grok", sub: "xAI API", base: "https://api.x.ai/v1", model: "grok-3-mini", keyUrl: "https://console.x.ai/", keyHint: "xai-…", jsonMode: true },
+  custom: { name: "自訂端點", sub: "OpenAI 相容", base: "https://openrouter.ai/api/v1", model: "x-ai/grok-3-mini", keyUrl: "https://openrouter.ai/keys", keyHint: "sk-or-…" }
+};
+const ls = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (e) { } } };
+const ss = { get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { v == null ? sessionStorage.removeItem(k) : sessionStorage.setItem(k, v); } catch (e) { } } };
+let AICFG = (() => { try { return JSON.parse(ls.get("mx-ai") || "null") || {}; } catch (e) { return {}; } })();
+const MEMKEY = {};
+function aiKey(p) { return MEMKEY[p] || ls.get("mx-ai-key-" + p) || ss.get("mx-ai-key-" + p) || ""; }
+function aiProvider() {
+  const p = AICFG.provider;
+  if (p && p !== "claude" && PROVIDERS[p] && aiKey(p)) return p;
+  if (SAMPLE) return "claude";
+  return null;
+}
+function aiReady() { return !!aiProvider(); }
+function aiRefreshBadge() {
+  const p = aiProvider(), dot = $("#ai-dot"), lab = $("#ai-label");
+  if (dot) dot.classList.toggle("on", !!p);
+  if (lab) lab.textContent = p ? `AI：${PROVIDERS[p].name}` : "連接我的 AI";
+}
+class OwnAIError extends Error { constructor(msg, code) { super(msg); this.own = true; this.code = code; } }
+async function httpErr(res, prov) {
+  let detail = ""; try { const j = await res.json(); detail = (j.error && (j.error.message || j.error)) || j.message || ""; } catch (e) { }
+  const name = PROVIDERS[prov].name;
+  const m = { 400: "請求格式或模型名稱有誤", 401: "API 金鑰錯誤或已失效", 403: "此金鑰沒有權限使用這個模型", 404: "找不到這個模型，請按「取得模型清單」重新選擇", 429: "額度用完或請求太頻繁，請檢查帳戶餘額或稍候再試" }[res.status] || `服務回應錯誤（HTTP ${res.status}）`;
+  return new OwnAIError(`${name}：${m}${detail ? `。\n詳細：${String(detail).slice(0, 200)}` : ""}`, res.status);
+}
+async function safeFetch(url, opt, prov) {
+  try { return await fetch(url, opt); }
+  catch (e) { throw new OwnAIError(`無法連線到 ${PROVIDERS[prov].name}。可能原因：網路中斷、這個服務不允許網頁直接呼叫，或你正在 claude.ai 內開啟本頁（那裡禁止連到外部網站）。請改用 GitHub Pages 版本，或改選「自訂端點」。`, "network"); }
+}
+async function readSSE(res, pick, onText) {
+  const rd = res.body.getReader(), dec = new TextDecoder(); let buf = "", text = "";
+  for (;;) {
+    const { done, value } = await rd.read(); if (done) break;
+    buf += dec.decode(value, { stream: true });
+    let i; while ((i = buf.indexOf("\n")) >= 0) {
+      const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1);
+      if (!line.startsWith("data:")) continue; const d = line.slice(5).trim(); if (!d || d === "[DONE]") continue;
+      try { const piece = pick(JSON.parse(d)); if (piece) { text += piece; onText && onText({ text }); } } catch (e) { }
+    }
+  }
+  return text;
+}
+function ownCfg(p) { const P = PROVIDERS[p]; return { model: (AICFG.models && AICFG.models[p]) || P.model, base: ((p === "custom" && AICFG.base) || P.base || "").replace(/\/+$/, ""), key: aiKey(p) }; }
+async function ownText(p, prompt, onText, json) {
+  const c = ownCfg(p);
+  if (p === "gemini") {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(c.model)}:${json ? "generateContent" : "streamGenerateContent?alt=sse"}`;
+    const body = { contents: [{ role: "user", parts: [{ text: prompt }] }] }; if (json) body.generationConfig = { responseMimeType: "application/json" };
+    const res = await safeFetch(url, { method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": c.key }, body: JSON.stringify(body) }, p);
+    if (!res.ok) throw await httpErr(res, p);
+    const pick = j => ((j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts) || []).map(x => x.text || "").join("");
+    if (json) return pick(await res.json());
+    return readSSE(res, pick, onText);
+  }
+  const body = { model: c.model, messages: [{ role: "user", content: prompt }], stream: !json };
+  if (json && PROVIDERS[p].jsonMode) body.response_format = { type: "json_object" };
+  const headers = { "Content-Type": "application/json", Authorization: "Bearer " + c.key };
+  if (p === "custom") { headers["HTTP-Referer"] = location.origin; headers["X-Title"] = "Mingxi Stat Workbench"; }
+  const res = await safeFetch(c.base + "/chat/completions", { method: "POST", headers, body: JSON.stringify(body) }, p);
+  if (!res.ok) throw await httpErr(res, p);
+  if (json) { const j = await res.json(); return (j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content) || ""; }
+  return readSSE(res, j => j.choices && j.choices[0] && j.choices[0].delta && j.choices[0].delta.content, onText);
+}
+function parseJSONLoose(t) {
+  const s = String(t || "").replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
+  try { return JSON.parse(s); } catch (e) { }
+  const a = s.indexOf("{"), b = s.lastIndexOf("}"); if (a >= 0 && b > a) { try { return JSON.parse(s.slice(a, b + 1)); } catch (e) { } }
+  throw new OwnAIError("AI 的回覆不是正確的 JSON，請再試一次或改用下方的引導選擇。", "invalid_json");
+}
+async function aiText(prompt, opt = {}) {
+  const p = aiProvider(); if (!p) throw new OwnAIError("尚未設定 AI。請按右上角「連接我的 AI」。", "none");
+  if (p === "claude") return SAMPLE(prompt, opt);
+  return { text: await ownText(p, prompt, opt.onText, false) };
+}
+async function aiJSON(prompt) {
+  const p = aiProvider(); if (!p) throw new OwnAIError("尚未設定 AI。請按右上角「連接我的 AI」。", "none");
+  if (p === "claude") return SAMPLE.json(prompt, { modelTier: "default" });
+  return parseJSONLoose(await ownText(p, prompt + "\n\n請只輸出 JSON 物件本身，不要加任何說明或 ``` 符號。", null, true));
+}
+async function listModels(p, key, base) {
+  if (p === "gemini") {
+    const res = await safeFetch("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200", { headers: { "x-goog-api-key": key } }, p);
+    if (!res.ok) throw await httpErr(res, p);
+    const j = await res.json(); return (j.models || []).filter(m => (m.supportedGenerationMethods || []).includes("generateContent")).map(m => m.name.replace(/^models\//, ""));
+  }
+  const res = await safeFetch(base.replace(/\/+$/, "") + "/models", { headers: { Authorization: "Bearer " + key } }, p);
+  if (!res.ok) throw await httpErr(res, p);
+  const j = await res.json(); let ids = (j.data || j.models || []).map(m => m.id || m.name).filter(Boolean);
+  if (p === "openai") ids = ids.filter(id => /^(gpt|o\d|chatgpt)/.test(id) && !/(audio|realtime|tts|transcribe|image|search|embedding)/.test(id));
+  return ids.sort();
+}
+
+/* settings dialog */
+let dlgProv = null;
+function renderAIDialog() {
+  const cur = dlgProv || AICFG.provider || (SAMPLE ? "claude" : "gemini");
+  dlgProv = cur;
+  $("#prov-grid").innerHTML = Object.entries(PROVIDERS).map(([k, P]) => {
+    const dis = k === "claude" && !SAMPLE;
+    return `<label class="prov"${dis ? ' aria-disabled="true" title="只有在 claude.ai 內開啟時可用"' : ""}><input type="radio" name="prov" value="${k}"${k === cur ? " checked" : ""}${dis ? " disabled" : ""}><b>${P.name}</b><span>${P.sub}${aiKey(k) ? "・已設定" : ""}</span></label>`;
+  }).join("");
+  const P = PROVIDERS[cur], f = $("#ai-fields");
+  if (P.builtin) { f.innerHTML = `<p class="small">使用你自己的 Claude 帳號回答，不需要金鑰。第一次使用時 claude.ai 會請你同意。</p>`; return; }
+  const c = ownCfg(cur), remembered = !!ls.get("mx-ai-key-" + cur);
+  f.innerHTML = `
+    ${cur === "custom" ? `<label class="f">端點網址（Base URL）<input type="url" id="ai-base" value="${esc(c.base)}" placeholder="https://openrouter.ai/api/v1"></label><p class="hint" style="margin-top:-4px">支援 OpenAI 相容格式的服務，例如 OpenRouter（可用 Grok、GPT、Gemini、Llama 等）、Groq、本機的 Ollama（http://localhost:11434/v1）。</p>` : ""}
+    <label class="f">API 金鑰 <span class="key-row"><input type="password" id="ai-key" autocomplete="off" spellcheck="false" placeholder="${P.keyHint}" value="${esc(aiKey(cur))}"><button class="btn ghost sm" type="button" id="ai-eye">顯示</button></span></label>
+    <p class="hint" style="margin-top:-4px">還沒有金鑰？<a href="${P.keyUrl}" target="_blank" rel="noopener">到 ${P.sub} 申請</a>${cur === "gemini" ? "（有免費額度）" : ""}。</p>
+    <label class="f">模型 <span class="key-row"><input type="text" id="ai-model" list="ai-model-list" value="${esc(c.model)}"><button class="btn ghost sm" type="button" id="ai-list">取得模型清單</button></span><datalist id="ai-model-list"></datalist></label>
+    <label class="small" style="display:flex;gap:8px;align-items:center;cursor:pointer"><input type="checkbox" id="ai-remember"${remembered || !aiKey(cur) ? " checked" : ""}> 在這台裝置記住金鑰（公用電腦請勿勾選）</label>`;
+  $("#ai-eye").onclick = e => { const k = $("#ai-key"); k.type = k.type === "password" ? "text" : "password"; e.target.textContent = k.type === "password" ? "顯示" : "隱藏"; };
+  $("#ai-list").onclick = async e => {
+    const st = $("#ai-status"), key = $("#ai-key").value.trim(); if (!key) { aiStatus("bad", "請先貼上 API 金鑰。"); return; }
+    e.target.disabled = true; aiStatus("", "讀取模型清單中…");
+    try { const ids = await listModels(cur, key, ($("#ai-base") && $("#ai-base").value) || P.base); $("#ai-model-list").innerHTML = ids.map(i => `<option value="${esc(i)}">`).join(""); aiStatus("ok", `找到 ${ids.length} 個模型。點一下「模型」欄位即可從清單選擇。`); }
+    catch (x) { aiStatus("bad", x.message); } finally { e.target.disabled = false; }
+  };
+}
+function aiStatus(kind, msg) { const st = $("#ai-status"); st.hidden = !msg; st.className = "ai-status" + (kind ? " " + kind : ""); st.textContent = msg || ""; }
+$("#prov-grid").addEventListener("change", e => { if (e.target.name === "prov") { dlgProv = e.target.value; aiStatus("", ""); renderAIDialog(); } });
+$("#ai-open").addEventListener("click", () => { dlgProv = null; aiStatus("", ""); renderAIDialog(); const d = $("#ai-dlg"); d.showModal ? d.showModal() : d.setAttribute("open", ""); });
+$("#ai-close").addEventListener("click", () => { const d = $("#ai-dlg"); d.close ? d.close() : d.removeAttribute("open"); });
+$("#ai-dlg").addEventListener("click", e => { if (e.target.id === "ai-dlg") e.target.close(); });
+$("#ai-save").addEventListener("click", async e => {
+  const p = dlgProv; AICFG.provider = p; AICFG.models = AICFG.models || {};
+  if (p !== "claude") {
+    const key = $("#ai-key").value.trim(); if (!key) { aiStatus("bad", "請貼上 API 金鑰。"); return; }
+    AICFG.models[p] = $("#ai-model").value.trim() || PROVIDERS[p].model;
+    if (p === "custom") AICFG.base = $("#ai-base").value.trim();
+    MEMKEY[p] = key;
+    if ($("#ai-remember").checked) { ls.set("mx-ai-key-" + p, key); ss.set("mx-ai-key-" + p, null); } else { ls.set("mx-ai-key-" + p, null); ss.set("mx-ai-key-" + p, key); }
+  }
+  ls.set("mx-ai", JSON.stringify(AICFG)); aiRefreshBadge();
+  if (p === "claude") { aiStatus("ok", "已切換為 Claude（claude.ai 內建）。"); return; }
+  e.target.disabled = true; aiStatus("", "測試連線中…");
+  try { const { text } = await aiText("請只回覆「連線成功」四個字。"); aiStatus("ok", `連線成功！${PROVIDERS[p].name}（${ownCfg(p).model}）回覆：${String(text).trim().slice(0, 40)}`); renderAIDialog(); }
+  catch (x) { aiStatus("bad", x.message || aiErr(x)); }
+  finally { e.target.disabled = false; }
+});
+$("#ai-forget").addEventListener("click", () => {
+  const p = dlgProv; if (p === "claude") return;
+  delete MEMKEY[p]; ls.set("mx-ai-key-" + p, null); ss.set("mx-ai-key-" + p, null);
+  if (AICFG.provider === p) { AICFG.provider = null; ls.set("mx-ai", JSON.stringify(AICFG)); }
+  aiRefreshBadge(); renderAIDialog(); aiStatus("ok", "已清除這台裝置上的金鑰。");
+});
+function openAISettings() { $("#ai-open").click(); }
+aiRefreshBadge();
+
+/* theme toggle */
+function applyTheme(t) {
+  const sysDark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const dark = t ? t === "dark" : sysDark;
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+  const b = $("#theme-btn"); if (b) b.textContent = dark ? "☀ 日間" : "☾ 深色";
+}
+applyTheme(ls.get("mx-theme"));
+$("#theme-btn").addEventListener("click", () => { const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark"; ls.set("mx-theme", next); applyTheme(next); if (typeof renderResults === "function") renderResults(); });
+const aiErr = e => (e && e.own) ? e.message : ({ not_granted: "你沒有允許使用 Claude，這次瀏覽中 AI 功能已停用。", rate_limited: "AI 請求太頻繁，請稍候再試。", prompt_too_large: "內容太長，AI 無法處理。", invalid_json: "AI 的回覆格式不正確，請再試一次或改用下方的引導選擇。", cancelled: "已停止。" }[e && e.code] || `AI 暫時無法回應${e && e.code ? `（${e.code}）` : ""}，請稍後再試。`);
 function plainOf(r) {
   const el = $("#res-" + r.id); if (!el) return r.title;
   return [r.title, el.querySelector(".headline").innerText, "假設檢查：", ...[...el.querySelectorAll("ul.checks li")].map(li => "- " + li.innerText.replace(/\s+/g, " ")), "APA：" + el.querySelector(".apa-text").innerText, r.plan ? r.plan.replace(/<[^>]+>/g, "") : ""].join("\n");
 }
 async function aiExplain(id, btn) {
   const r = S.results.find(x => x.id === id), out = $("#ai-" + id); if (!r || !out) return;
-  if (!SAMPLE) { out.hidden = false; out.textContent = "AI 功能在這個檢視中無法使用。"; return; }
+  if (!aiReady()) { openAISettings(); return; }
   const tablesTxt = [...$("#res-" + id).querySelectorAll("table.apa")].map(tb => [...tb.rows].map(row => [...row.cells].map(c => c.innerText.replace(/\s+/g, " ")).join(" | ")).join("\n")).join("\n\n");
   const prompt = `你是一位耐心的統計老師。請用繁體中文，向沒有統計背景的研究者解釋下面這個分析結果。\n要求：4 到 6 句、不要用條列、不要用 Markdown。先說結論，再說效果大小在實際上代表什麼，接著說假設檢查有沒有需要擔心的地方，最後提醒一個解讀上的限制（例如相關不等於因果、樣本是否足夠）。只能使用下面提供的數字，不要編造。\n\n分析方法：${METHODS[r.method].name}\n\n${plainOf(r)}\n\n表格：\n${tablesTxt}`;
   btn.disabled = true; out.hidden = false; out.textContent = "思考中…";
   try {
-    const { text } = await SAMPLE(prompt, { onText: ({ text }) => { out.textContent = text; } });
+    const { text } = await aiText(prompt, { onText: ({ text }) => { out.textContent = text; } });
     out.textContent = text; r.aiText = text;
     addLog("AI", `請 AI 解釋 #${String(id).padStart(2, "0")} ${r.title}`, "", "");
   } catch (e) { out.textContent = (e && e.text ? e.text + "\n\n" : "") + aiErr(e); }
@@ -1769,12 +2056,12 @@ function validateRec(method, params) {
 async function aiRecommend() {
   const q = $("#ai-q").value.trim(), box = $("#ai-rec"), btn = $("#ai-ask");
   if (!q) { box.innerHTML = `<p class="err">請先描述你的研究問題。</p>`; return; }
-  if (!SAMPLE) { box.innerHTML = `<p class="err">AI 功能在這個檢視中無法使用，請改用下方的引導選擇。</p>`; return; }
+  if (!aiReady()) { box.innerHTML = `<p class="err">尚未連接 AI。請按右上角「連接我的 AI」設定 ChatGPT、Gemini 或 Grok 的金鑰，或改用下方的引導選擇。</p>`; openAISettings(); return; }
   const list = Object.entries(METHODS).map(([k, m]) => `${k}：${m.name}；參數 ${JSON.stringify(Object.fromEntries(m.fields.map(f => [f.k, f.factors ? '[{"name":"因素名稱","items":[數值題項名稱]}]' : (f.multi ? "[變數名稱陣列]" : "變數名稱") + `（${f.type === "num" ? "數值" : f.type === "cat" ? "類別" : "任何型態"}${f.optional ? "，可省略" : ""}）`])))}`).join("\n");
   const prompt = `你是統計顧問。根據研究問題與變數清單，從可用方法中選出最適合的一個，並指定變數。\n規則：\n1. 只能使用變數清單中出現的名稱，並符合參數要求的型態。\n2. ttest 的分組變數必須剛好兩類；三類以上用 anova；有要控制的數值變數（例如前測）用 ancova。\n3. 結果是兩類別時用 logreg 或 chisq；同一群人只有兩次測量且不分組用 paired；三個以上時間點、或時間點加分組、或有缺漏的重複測量用 rm；同一量表多個題項的一致性用 reliab；驗證題目的因素結構或量表效度用 cfa。\n4. 若問題需要的方法不在清單中（例如存活分析、時間序列、結構方程模型的路徑分析），method 設為 "none"，並在 reason 說明該用什麼方法與哪套軟體。\n只回覆 JSON，格式：{"method":"方法代號或none","params":{...},"reason":"兩到三句繁體中文，說明為什麼選這個方法","caution":"一句請研究者確認的事"}\n\n可用方法：\n${list}\n\n變數清單：\n${varMeta()}\n\n研究問題：${q}`;
-  btn.disabled = true; box.innerHTML = `<p class="hint">AI 正在分析你的問題…（第一次使用時會先請你同意）</p>`;
+  btn.disabled = true; box.innerHTML = `<p class="hint">AI 正在分析你的問題…</p>`;
   try {
-    const ans = await SAMPLE.json(prompt, { modelTier: "default" });
+    const ans = await aiJSON(prompt);
     const method = ans && ans.method;
     if (method === "none") { box.innerHTML = `<div class="rec"><div class="rec-top"><div><div class="hint">AI 建議</div><div class="name">需要本站以外的方法</div></div></div><div class="rec-body"><div>${esc(ans.reason || "")}</div></div></div>`; return; }
     const p = validateRec(method, (ans && ans.params) || {});
@@ -2850,5 +3137,4 @@ applyChart();
 refreshAll(); renderGuide(); renderPwFields(); renderTeam();
 renderResults(); route();
 </script>
-</body>
-</html>
+</body></html>

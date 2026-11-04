@@ -15,10 +15,14 @@
 | 結果 | 自動檢查前提假設、效應量與信賴區間、白話解讀、APA 格式表格、同步產生 R／Python／SPSS 語法 |
 | 圖表 | 17 種風格（SPSS、ggplot2、base R、Stata、SAS、Excel、matplotlib、seaborn、APA、Nature、Lancet、Okabe-Ito、Viridis 等）＋自訂風格，可匯出 SVG／PNG |
 | 其他 | 檢定力與樣本數計算、統計教學說明、分析紀錄（可重現）、匯出 HTML 報告 |
+| 介面 | 新野獸派（Neo-brutalism）設計，日間／深色模式一鍵切換並記住選擇 |
+| 我的 AI | 可連接自己的 ChatGPT（OpenAI）、Gemini、Grok（xAI）或任何 OpenAI 相容端點（如 OpenRouter）；金鑰只存在自己的瀏覽器，AI 只收到統計摘要，不收原始資料 |
 | 團隊（僅 claude.ai） | 多人即時同步資料、顯示線上成員、共同編輯研究報告 |
 
 ## 注意
 
-- AI 協助、下載與團隊協作需要 claude.ai 的執行環境；在一般瀏覽器或 GitHub Pages 開啟時這些功能會自動隱藏，其餘統計功能皆可正常使用。
+- 在 GitHub Pages 或下載的檔案中，AI 請按右上「連接我的 AI」貼上自己的 API 金鑰（ChatGPT Plus 等訂閱不能直接使用，要另外申請 API 金鑰；Gemini 在 Google AI Studio 有免費額度）。
+- 在 claude.ai 內開啟時可直接使用 Claude；那裡不允許連到外部網站，所以 ChatGPT／Gemini／Grok 請用 GitHub Pages 版本。
+- 下載與團隊協作需要 claude.ai 的執行環境，在其他地方會自動隱藏。
 - 所有計算都在瀏覽器內完成，資料不會上傳。
 - 可在 repo 設定開啟 GitHub Pages，網址為 `…/biostat-class/stat-workbench/`。
